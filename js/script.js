@@ -60,35 +60,4 @@ for(let i = 0; i < users.length; i++){
      }
     
  }).catch((err)=> console.log(err));
-
 }
-
-/* getStreams();
-function setDom(data){
-    console.log(data.stream);
-}
-
-//function which is retrieving data from twitch
-function getData(url, callback){
-    req.open("GET", url);
-    req.send();
-    req.onreadystatechange = function(){
-        if(this.readyState===4 && this.status === 200){
-          resData = JSON.parse(this.responseText);
-          callback(resData);
-          //return true;
-       }
-     }
-     //console.log(resData);
-}
-//
-function getStreams(){
-    if(onOff === 'all'){
-        for(let i = 0; i < users.length; i++){
-            url = 'https://wind-bow.glitch.me/twitch-api/streams/'+ users[i];
-            getData(url, setDom);
-            //console.log(resData);
-        }
-    }
-}
- */
