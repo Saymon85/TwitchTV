@@ -1,5 +1,5 @@
 // ** Global variables 
-let users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "Ninja", "imaqtpie"];
+let users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "Ninja", "Starladder_CS_en"];
 let urlStream = 'https://wind-bow.glitch.me/twitch-api/streams/'; 
 let urlChanel = 'https://wind-bow.glitch.me/twitch-api/channels/';
 let divAll = document.querySelector('#container');
@@ -37,7 +37,9 @@ for(let i = 0; i < users.length; i++){
          link.href = data.stream.channel.url;
          link.textContent = data.stream.channel.display_name;
          link.target = '_blank';
+         link.classList.add('small');
          span.textContent = data.stream.channel.status;
+         span.classList.add('small');
          div.appendChild(img);
          div.appendChild(link);
          div.appendChild(span);
@@ -50,8 +52,10 @@ for(let i = 0; i < users.length; i++){
             link.href = data.url;
             link.textContent = data.display_name;
             link.target = '_blank';
+            link.classList.add('small');
             span.textContent = "Offline";
             span.classList.add('off');
+            span.classList.add('small');    
             div.appendChild(img);
             div.appendChild(link);
             div.appendChild(span);
