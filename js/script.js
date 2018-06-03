@@ -1,15 +1,16 @@
+// ** Global variables 
 let users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "Ninja", "imaqtpie"];
 let urlStream = 'https://wind-bow.glitch.me/twitch-api/streams/'; 
 let urlChanel = 'https://wind-bow.glitch.me/twitch-api/channels/';
-let divAll = document.querySelector('#allDiv');
-console.log(divAll);
+let divAll = document.querySelector('#container');
+
+// ** Ajax call with promises to get data from Twitch
 function getData(url){
     return new Promise((resolve, reject) => {
         var req = new XMLHttpRequest();
         req.open("GET", url);
         req.onloadend = function(){
             if(req.readyState === 4 &&  req.status === 200){
-                //console.log(req.responseText);
                 resolve(JSON.parse(req.responseText));
             }
            else{
@@ -22,11 +23,9 @@ function getData(url){
         req.send();
     });
 }
-
+// ** Get data from Twitch and dynamicly populate DOM
 for(let i = 0; i < users.length; i++){
  getData(urlStream + users[i]).then(function (data) {
-     //console.log(data.stream);
-     //console.log(data.stream.channel.logo);
      let div = document.createElement('div');
      let img = document.createElement('img');
      let link = document.createElement('a');
@@ -52,6 +51,7 @@ for(let i = 0; i < users.length; i++){
             link.textContent = data.display_name;
             link.target = '_blank';
             span.textContent = "Offline";
+            span.classList.add('off');
             div.appendChild(img);
             div.appendChild(link);
             div.appendChild(span);
@@ -61,3 +61,46 @@ for(let i = 0; i < users.length; i++){
     
  }).catch((err)=> console.log(err));
 }
+
+
+// ** Displaying offline or online channels
+
+let all = document.querySelector('#all');
+let online = document.querySelector('#online');
+let offline = document.querySelector('#offline');
+let holder = divAll.children;
+
+all.onclick = display;
+online.onclick = display;
+offline.onclick = display;
+
+function display(event){
+  
+    let listItems = document.querySelectorAll('li');
+    listItems.forEach(function(items){
+        items.classList.remove('active');
+        event.target.classList.add('active');
+    });
+    for(let i = 0; i < holder.length; i++){ 
+          if(event.target.id === 'online'){
+              holder[i].classList.remove('hide');
+              if(holder[i].lastElementChild.textContent === "Offline"){
+                  holder[i].classList.add('hide');
+              }
+          }
+          else if(event.target.id === "offline"){
+              holder[i].classList.remove('hide');
+              if(holder[i].lastElementChild.textContent !== "Offline"){
+                  holder[i].classList.add('hide');
+              }
+          }  
+          else{
+              holder[i].classList.remove('hide');
+          }
+    }
+
+}
+
+
+
+
