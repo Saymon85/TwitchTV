@@ -1,1 +1,1 @@
-### Twitc TV awesome project
+### Twitch TV awesome project
