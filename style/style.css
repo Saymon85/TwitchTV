@@ -1,5 +1,5 @@
 body{
-    background-color: darksalmon;
+    background-color: #4b367c;
     
 }
 #wrapper{
@@ -9,6 +9,8 @@ body{
     transition: width 0.2s linear;
 }
 h1{
+    color: #fff;
+    font-family: 'Bungee Shade', cursive;
     text-align: center;
 }
 ul{
@@ -18,7 +20,7 @@ ul{
     list-style-type: none;
 }
 ul li{
-    background-color: salmon;
+    background-color: #0e9bd8;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-sizing: border-box;
@@ -26,7 +28,7 @@ ul li{
     cursor: pointer;
     display: inline-block;
     font-weight: 450;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Changa', sans-serif;
     margin: 0;
     opacity: 0.5;
     padding: 3px 10px;
@@ -34,24 +36,24 @@ ul li{
     letter-spacing: 1px;
 
 } 
-.container{
+#container{
     box-sizing: border-box;
-    background-color: rgb(255, 171, 161);
-    display: none;
-    height: auto;
-    width:100%;
-}
-.show{
+    background-color: #0e9bd8;
     display: flex;
     flex-direction: column;
+    font-family: 'Changa', sans-serif;
+    height: auto;
+    margin-left: -2px;
+    width:100%;
 }
+
 .active{
-    background-color: salmon;
+    background-color: #0e9bd8;
     opacity:1;
 }
 .holder{
     box-sizing: border-box;
-    border: 1px solid darksalmon;
+    border: 2px solid #4b367c;
     display: flex;
     justify-content: space-between;
     height: 80px; 
@@ -67,19 +69,33 @@ img{
     max-width: 40px;
 }
 a{
+    color: #fff;
     display:block;
     flex-grow: 2;
+    font-family: 'Changa', sans-serif !important;
+    font-weight: 700;
+    letter-spacing: 1px;
     padding: 10px 10px;
+    text-decoration: none;
     width: 30%;
 }
+
+a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 0.5s ease;
+  }
 span{
+    color: #fff;
     display: block;
     flex-grow: 3;
     overflow: hidden;
     width: 40%;
     padding: 10px 10px;
 }
-
+.hide{
+    display: none;
+}
 @media screen and (max-width: 720px){
     #wrapper{
         width: 70%;
