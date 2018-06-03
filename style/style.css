@@ -5,7 +5,7 @@ body{
 #wrapper{
     /* border: 3px solid black; */
     margin: auto;
-    width: 60%;
+    width: 70%;
     transition: width 0.2s linear;
 }
 h1{
@@ -34,7 +34,6 @@ ul li{
     padding: 3px 10px;
     text-align: center;
     letter-spacing: 1px;
-
 } 
 #container{
     box-sizing: border-box;
@@ -44,6 +43,7 @@ ul li{
     font-family: 'Changa', sans-serif;
     height: auto;
     margin-left: -2px;
+    margin-top: -2px;
     width:100%;
 }
 
@@ -52,11 +52,13 @@ ul li{
     opacity:1;
 }
 .holder{
+    align-items: center;
     box-sizing: border-box;
     border: 2px solid #4b367c;
     display: flex;
     justify-content: space-between;
-    height: 80px; 
+    height: 100px; 
+    overflow: hidden;
     text-align: center;
     width: 100%;
 }
@@ -96,13 +98,30 @@ span{
 .hide{
     display: none;
 }
-@media screen and (max-width: 720px){
+@media screen and (max-width: 800px){
     #wrapper{
-        width: 70%;
+        width: 75%;
+    }
+    .holder{
+        height: auto;
+    }
+    span {
+        margin-left: 10px;
     }
 }
-@media screen and (max-width: 480px){
+@media screen and (max-width: 500px){
     #wrapper{
-        width: 80%;
+        width: 85%;
     }
+    .holder{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .small{
+        margin: auto;
+        padding: 0;
+        width:80%;
+    }
+
 }
